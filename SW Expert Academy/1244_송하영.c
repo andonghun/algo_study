@@ -10,7 +10,7 @@ void swap(char &a, char &b) {
     b = temp;
 }
 void DFS(int depth, char _buf[7]) {
-    if (!(depth^N)) {
+    if (depth==N) {
         for (int i = 0; i < len; i++) {
             if (buf[i]>_buf[i]) return;
             else if (buf[i]<_buf[i]) {
