@@ -21,7 +21,8 @@ void DFS(int depth, char _buf[7]) {
         return;
     }
     int is_used = 0;
-    for (int i = 0; i < len - 1; i++) is_used = (is_used << 3) + (is_used << 1) + (_buf[i] & 0b1111);
+    for (int i = 0; i < len - 1; i++)
+        is_used = is_used*10 + _buf[i]-'0';
     if (used[is_used][depth]) return;
     used[is_used][depth] = 1;
     for (int i = 0; i<len - 2; i++) {
