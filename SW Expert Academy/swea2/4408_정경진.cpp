@@ -30,7 +30,7 @@ int main()
         for(int i=1; i<=200; i++)
             if(time < room[i])
                 time = room[i];
-        printf("#%d %d\numOfStudent", testcase, time);
+        printf("#%d %d\n", testcase, time);
     }
      
     return 0;
