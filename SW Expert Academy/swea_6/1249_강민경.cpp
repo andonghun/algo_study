@@ -14,7 +14,7 @@ int dy[4] = { -1,1,0,0 };
 
 void map(int x, int y, int sum) {
 	
-	countmap[x][y] = arr[x][y] + sum;
+	countmap[x][y] = sum;
 
 	//1. 기저조건, 범위를 벗어나면 종료
 	if (x < 0 || y < 0 || x == n || y == n) return;
