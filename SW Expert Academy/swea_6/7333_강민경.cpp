@@ -1,6 +1,5 @@
 // 7333. 한솔이의 택배 아르바이트
 // 오답 41/200
-
 #include<iostream>
 #include <vector>
 #include <algorithm>
@@ -38,7 +37,6 @@ int main(int argc, char** argv)
 			if (weight.back() >= 50) {
 				answer++;
 				weight.pop_back();
-		//		cout << "answer++" << "\n";
 			}
 			else {
 				int count = 1;
@@ -48,6 +46,7 @@ int main(int argc, char** argv)
 				if (weight.back() * size < 50) {
 					// 나머지 모든 원소들의 갯수만큼 무게를 곱했는데도 50kg가 안됨
 				   // answer는 그대로, 지금 남은 무게 만큼 이전 계산할때 더해서 옮겨야함
+                    weight.pop_back();
 					break;
 				}
 
@@ -55,7 +54,6 @@ int main(int argc, char** argv)
 				for (int i = 1; i <= size; i++) {
 					if (weight.back() * i >= 50) {
 						count = i;
-			//			cout << "count: " << count << "\n";
 					}
 				}
 
