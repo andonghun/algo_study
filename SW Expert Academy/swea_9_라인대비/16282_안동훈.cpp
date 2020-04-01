@@ -1,3 +1,34 @@
+//총 고리 개수 = n+(n+1)(2^(n+1)-1) = (n+1)2^(n+1)-1
+#include<bits/stdc++.h>
+
+using namespace std;
+
+long long N, max_num;
+
+int main(void)
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	int cnt = 1;
+	long long temp = 2;
+
+	cin >> N;
+
+	while (1) {
+		temp *= 2;
+		max_num = (cnt + 1) * temp - 1;
+		if (N <= max_num) break;
+		cnt++;
+	}
+
+	cout << cnt << '\n';
+
+	return 0;
+}
+
+
+//시간초과
 //고리 1개 2 1 4 
 //고리 2개 3 1 6 1 12 
 //고리 3개 4 1 8 1 16 1 32 
