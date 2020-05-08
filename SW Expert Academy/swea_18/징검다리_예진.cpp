@@ -1,32 +1,37 @@
-/*
-2020-05-07 진예진
-참고 https://regularmember.tistory.com/193?category=762816
-*/
-
 #include <string>
 #include <vector>
-#include <map>
+#include <algorithm>
+#include <limits.h>
 
 using namespace std;
 
-map<long long, long long> visited_rooms;
 
-long long get_empty_room_number(long long cur_room){
-    // 0: 비어있음
-    if(visited_rooms[cur_room] == 0) return cur_room;
-    // visited_room[cur_room]은 모두 비어있는 가장 작은 방의 수로 업데이트 됨
-    return visited_rooms[cur_room] = get_empty_room_number(visited_rooms[cur_room]);
-}
-
-vector<long long> solution(long long k, vector<long long> room_number) {
-    vector<long long> answer;
-    // long long empty_room_number;
+int solution(vector<int> stones, int k) {
+    int answer = 0;
+    long long min_value, max_value, mid_value;
     
-    for(long long cur_room:room_number){
-    	long long empty_room_number = get_empty_room_number(cur_room);
-        answer.push_back(empty_room_number);
-        // 현재 추가된 방도 visited_room에 추가해준다.
-        visited_rooms[empty_room_number] = empty_room_number + 1;
+    min_value = *min_element(stones.begin(), stones.end());
+    max_value = *max_element(stones.begin(), stones.end());
+    
+    while(min_value <= max_value){
+        mid_value =  (min_value + max_value) / 2;
+        int end_check = 0; // 연속으로 몇개의 돌이 0이 되는지 체크
+
+        for(auto stone:stones){
+            if(end_check >= k) break;
+            // 돌이 0이 됨
+            if(mid_value > stone){
+                end_check++;
+            }
+            else end_check = 0;
+        }
+        
+        // 건널 수 없다.
+        if(end_check >= k ) max_value = mid_value - 1;
+        // 건널 수 있다.
+        else min_value = mid_value + 1;
     }
+    answer = max_value;
+    printf("%d %d %d", min_value, mid_value, max_value);
     return answer;
 }
