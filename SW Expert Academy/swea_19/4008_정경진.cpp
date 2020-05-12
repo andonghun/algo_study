@@ -1,11 +1,10 @@
 // SWEA 4008. [모의 SW 역량테스트] 숫자 만들기
-// 샘플 테스트 케이스는 다 맞는데 체점하면 0점...?
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
 #define NUM_OPER 4
-#define INF 987654321
+#define INF 100000001
 using namespace std;
 
 int testcase;
@@ -49,7 +48,7 @@ int operation() {
 }
 
 void dfs(int cnt) {
-    if (cnt == N - 1) {
+    if (cnt == N - 1) { // 사용한 연산자 개수가 N-1
         int res = operation();
         min_ans = min(min_ans, res);
         max_ans = max(max_ans, res);
@@ -76,7 +75,7 @@ int main() {
         min_ans = INF;
         max_ans = -INF;
         dfs(0);
-        cout << "#" << " " << tc << " " << max_ans - min_ans << "\n";
+        cout << "#" << tc << " " << max_ans - min_ans << "\n";
     }
     return 0;
 }
