@@ -8,7 +8,7 @@ using namespace std;
 
 int T[MAX];
 int P[MAX];
-int dp[MAX];
+int dp[MAX+1];
 
 int main() {
     ios::sync_with_stdio(false);
