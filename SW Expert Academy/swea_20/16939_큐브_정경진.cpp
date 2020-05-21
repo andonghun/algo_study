@@ -1,5 +1,6 @@
 // 백준 16939. 2*2*2 큐브
 // 참고 : https://100100e.tistory.com/216
+
 #include <iostream>
 #include <string>
 #include <map>
@@ -43,11 +44,7 @@ void one()
 	cpy[10] = temp2;
 }
 
-void reone() {
-	one();
-	one();
-	one();
-}
+void reone() { one(); one(); one(); }
 
 void two() { 
 	int temp1 = cpy[22], temp2 = cpy[24];
@@ -64,15 +61,9 @@ void two() {
 	cpy[9] = temp2;
 }
 
-void retwo()
-{
-	two();
-	two();
-	two();
-}
+void retwo() { two(); two(); two(); }
 
-void three()
-{
+void three() {
 	int temp1 = cpy[11], temp2 = cpy[12];
 	cpy[11] = cpy[13];
 	cpy[12] = cpy[15];
@@ -87,15 +78,9 @@ void three()
 	cpy[18] = temp2;
 }
 
-void rethree()
-{
-	three();
-	three();
-	three();
-}
+void rethree() { three(); three(); three(); }
 
-void four()
-{
+void four() {
 	int temp1 = cpy[9], temp2 = cpy[10];
 	cpy[9] = cpy[14];
 	cpy[10] = cpy[16];
@@ -110,15 +95,9 @@ void four()
 	cpy[17] = temp2;
 }
 
-void refour()
-{
-	four();
-	four();
-	four();
-}
+void refour() { four(); four(); four(); }
 
-void five()
-{
+void five() {
 	int temp1 = cpy[19], temp2 = cpy[20];
 	cpy[20] = cpy[24];
 	cpy[19] = cpy[23];
@@ -133,15 +112,10 @@ void five()
 	cpy[7] = temp1;
 
 }
-void refive()
-{
-	five();
-	five();
-	five();
-}
 
-void six()
-{
+void refive() { five(); five(); five(); }
+
+void six() {
 	int temp = cpy[18], temp2 = cpy[17];
 	cpy[18] = cpy[22];
 	cpy[17] = cpy[21];
@@ -156,17 +130,11 @@ void six()
 	cpy[6] = temp;
 }
 
-void resix()
-{
-	six();
-	six();
-	six();
-}
+void resix() { six(); six(); six(); }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    freopen("input.txt", "r", stdin);
 
     map<string, function<void(void)>> func_map = {
         {name[0], one}, {name[1], reone},
