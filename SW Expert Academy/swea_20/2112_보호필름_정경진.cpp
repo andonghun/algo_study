@@ -64,7 +64,6 @@ void go(int row, int cnt) { // row : 약품을 주입하는 행, cnt : 약품 �
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    freopen("input.txt", "r", stdin);
 
     cin >> testcase;
     for (int tc = 1; tc <= testcase; tc++) {
