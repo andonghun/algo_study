@@ -1,12 +1,17 @@
 // 백준 16939. 2*2*2 큐브
 // 참고 : https://100100e.tistory.com/216
 #include <iostream>
+#include <string>
+#include <map>
+#include <functional>
 
 #define MAX 24
 using namespace std;
 
 int cube[MAX+1];
 int cpy[MAX+1];
+string name[12] = {"one", "reone", "two", "retwo", "three", "rethree",
+                   "four", "refour", "five", "refive", "six", "resix"};
 
 // 큐브가 다 맞춰졌는지 확인하는 함수
 bool check() {
@@ -38,15 +43,13 @@ void one()
 	cpy[10] = temp2;
 }
 
-void reone()
-{
+void reone() {
 	one();
 	one();
 	one();
 }
 
-void two()
-{
+void two() { 
 	int temp1 = cpy[22], temp2 = cpy[24];
 	cpy[22] = cpy[3];
 	cpy[24] = cpy[1];
@@ -165,56 +168,22 @@ int main() {
     cin.tie(NULL); cout.tie(NULL);
     freopen("input.txt", "r", stdin);
 
-    for (int i = 1; i <= MAX; i++)
-        cin >> cube[i];
-    
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    one();
-    if (check()) return 0;
+    map<string, function<void(void)>> func_map = {
+        {name[0], one}, {name[1], reone},
+        {name[2], two}, {name[3], retwo},
+        {name[4], three}, {name[5], rethree},
+        {name[6], four}, {name[7], refour},
+        {name[8], five}, {name[9], refive},
+        {name[10], six}, {name[11], resix},
+    };
 
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    reone();
-    if (check()) return 0;
+    for (int i = 1; i <= MAX; i++) cin >> cube[i];
 
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    two();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    retwo();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    three();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    rethree();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    four();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    refour();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    five();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    refive();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    six();
-    if (check()) return 0;
-
-    for (int i = 1; i <= MAX; i++) cpy[i] = cube[i];
-    resix();
-    if (check()) return 0;
+    for (int i = 0; i < 12; i++) {
+        for (int j = 1; j <= MAX; j++) cpy[j] = cube[j];
+        func_map[name[i]]();
+        if (check()) return 0;
+    }
 
     cout << 0;
     return 0;
