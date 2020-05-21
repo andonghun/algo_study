@@ -43,7 +43,6 @@ void one()
 	cpy[12] = temp1;
 	cpy[10] = temp2;
 }
-
 void reone() { one(); one(); one(); }
 
 void two() { 
@@ -60,7 +59,6 @@ void two() {
 	cpy[11] = temp1;
 	cpy[9] = temp2;
 }
-
 void retwo() { two(); two(); two(); }
 
 void three() {
@@ -77,7 +75,6 @@ void three() {
 	cpy[20] = temp1;
 	cpy[18] = temp2;
 }
-
 void rethree() { three(); three(); three(); }
 
 void four() {
@@ -94,7 +91,6 @@ void four() {
 	cpy[19] = temp1;
 	cpy[17] = temp2;
 }
-
 void refour() { four(); four(); four(); }
 
 void five() {
@@ -112,7 +108,6 @@ void five() {
 	cpy[7] = temp1;
 
 }
-
 void refive() { five(); five(); five(); }
 
 void six() {
@@ -129,7 +124,6 @@ void six() {
 	cpy[5] = temp2;
 	cpy[6] = temp;
 }
-
 void resix() { six(); six(); six(); }
 
 int main() {
