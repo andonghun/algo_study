@@ -2,25 +2,23 @@
 
 using namespace std;
 
-int trees[1000000];
-int N, M;
+long long trees[1000000];
+long long N, M;
 
-int cut(int meter_to_cut){
-    int sum;
+long long cut(int meter_to_cut){
+    long long sum = 0;
     for(int i = 0; i < N; i++){
-        // printf("%d ", trees[i] - meter_to_cut);
-        if(trees[i] >= meter_to_cut) sum += trees[i] - meter_to_cut; 
+        if(trees[i] >= meter_to_cut) sum += trees[i] - meter_to_cut;
     }
-    printf("sum: %d\n", sum);
     return sum;
 }
 
 int main(){
-    int left, right, mid;
+    long long left, right, mid;
     FILE *stream = freopen("SWEA\\22\\2805_input.txt", "r", stdin);
     if(!stream) printf("freopen");
 
-    scanf("%d %d", &N, &M);
+    scanf("%lld %lld", &N, &M);
 
     left = 0;
     right = 0;
@@ -31,11 +29,8 @@ int main(){
     }
 
 
-    while(left < right){
+    while(left <= right){
         mid = (left + right) / 2;
-        // printf("left: %d, right: %d mid: %d\n", left, right, mid);
-        //printf("A");
-        printf("mid: %d\n", mid);
 
         if(cut(mid) >= M){
             left = mid + 1;
@@ -44,6 +39,6 @@ int main(){
             right = mid - 1;
         }
     }
-    printf("%d %d", right, left);
+    printf("%lld", right);
     return 0;
 }
