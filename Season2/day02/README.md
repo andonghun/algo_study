@@ -12,7 +12,7 @@
 - https://www.acmicpc.net/problem/2667
 4. [백준] 숫자고르기
 - https://www.acmicpc.net/problem/2668
-5. 5656. [모의 SW 역량테스트] 벽돌 깨기
+5. 5656 [모의 SW 역량테스트] 벽돌 깨기
 - https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRQm6qfL0DFAUo
-6. 1949. [모의 SW 역량테스트] 등산로 조성
+6. 1949 [모의 SW 역량테스트] 등산로 조성
 - https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&
