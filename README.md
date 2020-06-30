@@ -3,4 +3,7 @@
 SW Expert Academy, Season2, 프로그래머스
 
 ## JAVA 
-Slime Hunter
+Slime Game FOR GUI/TUI
+
+## JS
+JS_Challange
